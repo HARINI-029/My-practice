@@ -1,9 +1,9 @@
 # 💫 About Me:
-I Am a student <br>Currently learning
+Hello everyone, I’m Harini Perumal, an aspiring developer. As a beginner in coding, I’m currently learning various programming languages. I’ve already learned C, C++, and the basics of Java and Python. I dedicate myself daily to growing my coding knowledge by tackling new challenges. Here on GitHub, I share the challenges I’ve successfully completed.
 
 
 # 💻 Tech Stack:
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=HARINI-029&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
 ![](https://github-readme-streak-stats.herokuapp.com/?user=HARINI-029&theme=dark&hide_border=false)<br/>
@@ -19,3 +19,4 @@ I Am a student <br>Currently learning
 [![](https://visitcount.itsvg.in/api?id=HARINI-029&icon=0&color=0)](https://visitcount.itsvg.in)
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+
