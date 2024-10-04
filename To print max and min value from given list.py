@@ -7,5 +7,5 @@ for num in range(5):
 print("The maximum value is:")
 print(max(list1))
 
-print("The maximum value is:")
+print("The minimum value is:")
 print(min(list1))
