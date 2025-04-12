@@ -1,0 +1,59 @@
+/***
+Demo 1.4: 
+Write a C program to find area of rectangle using functions (input, find_area, output, main) 
+and structure for rectangle (Use typedef to make it more readable) 
+typedef struct { 
+float length; 
+float width; 
+float area; 
+} Rectangle; 
+Rectangle input(); 
+Rectangle area_rectangle(Rectangle rect); 
+void output(Rectangle rect); 
+***/
+#include<stdio.h>
+
+typedef struct { 
+float length; 
+float width; 
+float area; 
+} Rectangle; 
+
+Rectangle input(); 
+Rectangle area_rectangle(Rectangle rect); 
+void output(Rectangle rect); 
+
+int main()
+{
+Rectangle n,area;
+
+n = input();
+area =  area_rectangle(n);
+output(area);
+return 0;
+}
+
+Rectangle input()
+{
+Rectangle n;
+printf("Enter the length of rectangle\n");
+scanf("%f",& n.length);
+
+printf("Enter the width of rectangle\n");
+scanf("%f",&n.width);
+return n;
+}
+
+Rectangle area_rectangle(Rectangle rect)
+{
+rect.area = rect.length *rect.width;
+return rect;
+}
+
+void output(Rectangle rect)
+{
+printf("The area of rectangle is : %.2f",rect.area);
+}
+
+
+

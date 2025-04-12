@@ -1,0 +1,26 @@
+/***
+Assignment 1.1: 
+Write a C program to calculate the cost of tiling a rectangular floor. (Variables, Expressions)  
+Area of a Rectangle: Area = Length × Width 
+Cost of Tiling: Total Cost = Area × Cost per square unit 
+***/
+#include<stdio.h>
+int main()
+{
+float area ,cost, length, width,cost_of_tiling;
+printf("Enter the length of rectangle\n");
+scanf("%f",&length);
+
+printf("Enter the width of rectangle\n");
+scanf("%f",&width);
+
+printf("Enter the cost per square unit\n");
+scanf("%f",&cost);
+
+area = length * width;
+cost_of_tiling = area  *  cost ; 
+printf("The cost of tiling is: %.2f",cost_of_tiling);
+return 0;
+}
+
+

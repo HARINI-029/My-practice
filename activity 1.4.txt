@@ -1,0 +1,67 @@
+/**
+Activity 1.4: 
+Write a C program to calculate the total electricity bill using functions (input, calculate_bill, 
+output, main) and structure for bill (Use typedef to make it more readable). 
+typedef struct { 
+int units; 
+float rate; 
+float total_bill; 
+} ElectricityBill; 
+ElectricityBill input(); 
+ElectricityBill calculate_bill(ElectricityBill bill); 
+void output(ElectricityBill bill); 
+***/
+
+#include<stdio.h>
+
+typedef struct{
+int units;
+float rate;
+float Total_Bill;
+}ElectricityBill;
+
+ElectricityBill input(); 
+ElectricityBill calculate_bill(ElectricityBill bill); 
+void output(ElectricityBill bill); 
+
+
+int main()
+{
+ElectricityBill n,bill;
+n= input();
+bill=  calculate_bill(n);
+output(bill);
+return 0;
+}
+
+
+ElectricityBill input()
+{
+ElectricityBill n;
+
+printf("Enter the units consumed\n");
+scanf("%d",& n.units);
+
+printf("Enter the rate per unit\n");
+scanf("%f",&n.rate);
+
+return n;
+}
+
+ElectricityBill calculate_bill(ElectricityBill bill)
+{
+bill.Total_Bill = bill.units * bill.rate;
+return bill;
+}
+
+void output(ElectricityBill bill)
+{
+printf("The total elctricity bill is %.2f",bill.Total_Bill);
+}
+
+
+
+
+
+
+

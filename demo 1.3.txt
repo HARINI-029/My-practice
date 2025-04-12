@@ -1,0 +1,44 @@
+/****
+Demo 1.3: 
+Write a C program to find area of rectangle using functions (input, find_area, output, main) 
+(Call by reference) 
+void input(float *length, float *width); 
+float area_rectangle(float length, float width); 
+void output(float area); 
+****/
+#include<stdio.h>
+
+void input(float *length, float *width); 
+  float area_rectangle(float length, float width); 
+void output(float area);
+
+int main()
+{
+float l, w, area;
+input(&l, &w);
+area =  area_rectangle(l, w);
+ output(area);
+return 0;
+}
+
+
+void input(float *length, float *width)
+{
+printf("Enter the length of rectangle\n");
+scanf("%f", length);
+
+printf("Enter the width of rectangle\n");
+scanf("%f", width);
+}
+
+
+float area_rectangle(float length, float width)
+{
+return length * width;
+}
+
+void output(float area)
+{
+printf("The area of rectangle is: %.2f",area);
+}
+

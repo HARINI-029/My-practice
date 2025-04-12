@@ -1,0 +1,45 @@
+/**
+Activity 1.3: 
+Write a C program to calculate the total electricity bill using functions (input, calculate_bill, 
+output, main). 
+void input(int *units, float *rate);  
+ float calculate_bill(int units, float rate);  
+void output(float total_bill); 
+***/
+
+#include<stdio.h>
+
+void input(int *units, float *rate);  
+float calculate_bill(int units, float rate);  
+void output(float total_bill); 
+
+int main()
+{
+float bill ,rate;
+int units ;
+input(&units,&rate);
+bill =  calculate_bill(units, rate);
+output(bill);
+return 0;
+}
+
+
+void input(int *units, float *rate)
+{
+printf("Enter the units of electricity consumed\n");
+scanf("%d",units);
+
+printf("Enter the rate per unit electricity\n");
+scanf("%f",rate);
+
+}
+
+ float calculate_bill(int units, float rate)
+{
+return units * rate;
+}
+
+void output(float total_bill)
+{
+printf("The total electricity bill is: %.2f",total_bill);
+}

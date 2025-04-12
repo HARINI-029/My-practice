@@ -1,0 +1,26 @@
+/****
+Activity 1.1:  
+Write a C program to calculate the total electricity bill based on unit consumption and a fixed 
+rate per unit. (Variables, Expressions)  
+Formula: Total Bill = Units Consumed × Rate per Unit 
+***/
+
+#include<stdio.h>
+int main()
+{
+float Units, Rate,Total_Bill;
+
+printf("Enter the units consumed\n");
+scanf("%f",&Units);
+
+printf("Enter the rate per Unit\n");
+scanf("%f",&Rate);
+
+Total_Bill = Units * Rate ;
+
+printf("The Total Electricity bill is:%.2f",Total_Bill);
+return 0;
+}
+
+
+

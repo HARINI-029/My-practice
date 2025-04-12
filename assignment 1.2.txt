@@ -1,0 +1,45 @@
+/***
+Assignment 1.2: 
+Write a C program that uses functions to calculate:  
+(a) The area of the rectangular floor. 
+(b) The total tiling cost based on the area and cost per square unit. (Functions) 
+float calculate_area(float length, float width);  
+float calculate_total_cost(float area, float cost_per_unit); 
+***/
+
+#include<stdio.h>
+
+float calculate_area(float length, float width);  
+float calculate_total_cost(float area, float cost_per_unit); 
+
+int main()
+{
+float l , b, cost, area,total;
+
+printf("Enter the length of rectangle\n");
+scanf("%f",&l);
+
+printf("Enter the width of rectangle\n");
+scanf("%f",&b);
+
+printf("Enter the cost per unit area\n");
+scanf("%f",&cost);
+
+area =  calculate_area(l,b);
+total =  calculate_total_cost(area,cost);
+
+printf("The area of rectangle is: %.2f",area);
+printf("The total tiling cost is%.2f",total);
+return 0;
+}
+
+
+float calculate_area(float length, float width)
+{
+return length * width ;
+}
+
+float calculate_total_cost(float area, float cost_per_unit)
+{
+return area * cost_per_unit;
+}

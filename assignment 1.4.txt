@@ -1,0 +1,79 @@
+/**
+Assignment 1.4: 
+Write a C program that uses functions (input, calculate_area, calculate_total_cost, output, 
+main) and structure (Use typedef to make it more readable) to calculate:  
+(a) The area of the rectangular floor. 
+(b) The total tiling cost based on the area and cost per square unit.  
+typedef struct {  
+float length; 
+float width; 
+float area; 
+float cost_per_sq_unit; 
+float total_cost; 
+} Rectangle; 
+Rectangle input();  
+Rectangle calculate_area(Rectangle rect);  
+Rectangle calculate_total_cost(Rectangle rect);  
+void output(Rectangle rect); 
+***/
+#include<stdio.h>
+typedef struct {  
+float length; 
+float width; 
+float area; 
+float cost_per_sq_unit; 
+float total_cost; 
+} Rectangle; 
+
+Rectangle input();  
+Rectangle calculate_area(Rectangle rect);  
+Rectangle calculate_total_cost(Rectangle rect);  
+void output(Rectangle rect); 
+
+int main()
+{
+Rectangle n,area,cost;
+n = input();
+area =  calculate_area(n);
+ cost = calculate_total_cost(area);
+output(cost);
+return 0;
+}
+
+
+Rectangle input()
+{
+Rectangle n;
+
+printf("Enter the length of rectangle\n");
+scanf("%f",&n.length);
+
+printf("Enter the width of rectangle\n");
+scanf("%f",&n.width);
+
+printf("Enter the cost per unit\n");
+scanf("%f",&n.cost_per_sq_unit);
+
+return n;
+}
+
+
+Rectangle calculate_area(Rectangle rect)
+{
+rect.area = rect.length * rect.width;
+return rect;
+}
+ 
+Rectangle calculate_total_cost(Rectangle rect)
+{
+rect.total_cost = rect.area * rect.cost_per_sq_unit;
+
+return rect;
+}
+
+void output(Rectangle rect)
+{
+printf("The area of rectangle is %.2f\n",rect.area);
+printf("The total cost of tiling is %.2f",rect.total_cost);
+}
+
