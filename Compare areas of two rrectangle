@@ -1,0 +1,55 @@
+#include <stdio.h>
+typedef struct {
+    float length;
+    float width;
+    float area;
+} Rectangle;
+
+
+Rectangle input();
+float calculate_area(Rectangle rect);
+void compare_areas(Rectangle r1, Rectangle r2);
+void output(Rectangle r1, Rectangle r2);
+
+int main()
+{
+    Rectangle n1, n2;
+    n1 = input();
+    n1.area = calculate_area(n1); 
+    n2 = input(); 
+    n2.area = calculate_area(n2); 
+    compare_areas(n1, n2); 
+    output(n1, n2);
+}
+
+Rectangle input()
+{
+    Rectangle n;
+    printf("Enter the length and width of the rectangle:\n");
+    scanf("%f %f", &n.length, &n.width); 
+    return n; 
+}
+
+float calculate_area(Rectangle rect)
+{
+    rect.area = rect.length * rect.width;
+    return rect.area;
+}
+
+void compare_areas(Rectangle r1, Rectangle r2)
+{
+    if (r1.area > r2.area)
+    {
+        printf("First rectangle is largest\n");
+    }
+    else
+    {
+        printf("Second rectangle is largest\n");
+    }
+}
+
+void output(Rectangle r1, Rectangle r2)
+{
+    printf("Area of first rectangle: %.2f\n", r1.area);
+    printf("Area of second rectangle: %.2f\n", r2.area);
+}
