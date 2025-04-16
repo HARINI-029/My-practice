@@ -1,0 +1,16 @@
+# include<stdio.h>
+struct number
+{
+    int num;
+}n[2];
+int main()
+{
+    for( int i=0;i<2;i++)
+    {
+        scanf("%d",&n[i].num);
+    }
+    for(int i=0;i<2;i++)
+    {
+        printf("%d",n[i].num);
+    }
+}
