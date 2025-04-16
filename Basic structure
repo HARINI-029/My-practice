@@ -1,0 +1,14 @@
+#include <stdio.h>
+struct add
+{
+    int x;
+    int y;
+    int add;
+}n1;
+int main()
+{
+    n1.x =1;
+    n1.y=2;
+    n1.add = n1.x + n1. y;
+    printf("%d",n1.add);
+}
