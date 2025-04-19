@@ -1,0 +1,25 @@
+//addition using structures and pointers//
+#include <stdio.h>
+
+typedef struct 
+{
+    int x;
+    int y;
+} num;
+
+int add(num *n) 
+{
+    return n->x + n->y; 
+}
+
+int main()
+{
+    num n1; 
+    n1.x = 5; 
+    n1.y = 10;
+
+    int result = add(&n1); 
+    printf("The sum is: %d\n", result); 
+
+    return 0; 
+}
