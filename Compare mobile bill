@@ -1,0 +1,73 @@
+# include <stdio.h>
+typedef struct {
+char name[50];
+int number_of_calls;
+float fixed_charge;
+float cost_per_call;
+float total_bill;
+}MobileBill;
+
+
+MobileBill input();
+float calculate_bill(MobileBill bill);
+void compare_bills(MobileBill b1, MobileBill b2, MobileBill b3);
+void output(MobileBill b1, MobileBill b2, MobileBill b3);
+
+   int main ()
+{
+    MobileBill a, b, c;
+    
+    a = input();
+    a.total_bill = calculate_bill(a);
+    b = input();
+    b.total_bill = calculate_bill(b);
+    c = input();
+    c.total_bill = calculate_bill(c);
+    
+    compare_bills(a, b, c); 
+    output(a, b, c); 
+    return 0;
+}
+
+
+
+
+MobileBill input()
+{
+    MobileBill bill;
+    printf("Enter user name: ");
+    scanf("%s", bill.name);
+    printf("Enter number of calls: ");
+    scanf("%d", &bill.number_of_calls);
+    printf("Enter fixed monthly charge: ");
+    scanf("%f", &bill.fixed_charge);
+    printf("Enter cost per call: ");
+    scanf("%f", &bill.cost_per_call);
+    bill.total_bill = calculate_bill(bill);
+    return bill;
+}
+
+float calculate_bill(MobileBill bill) {
+    return bill.fixed_charge + (bill.number_of_calls * bill.cost_per_call);
+}
+
+void compare_bills(MobileBill b1, MobileBill b2, MobileBill b3) {
+    printf("\n--- Comparison Result ---\n");
+
+    if (b1.total_bill > b2.total_bill && b1.total_bill > b3.total_bill) {
+        printf("%s has the highest bill: ₹%.2f\n", b1.name, b1.total_bill);
+    } else if (b2.total_bill > b1.total_bill && b2.total_bill > b3.total_bill) {
+        printf("%s has the highest bill: ₹%.2f\n", b2.name, b2.total_bill);
+    } else if (b3.total_bill > b1.total_bill && b3.total_bill > b2.total_bill) {
+        printf("%s has the highest bill: ₹%.2f\n", b3.name, b3.total_bill);
+    } else {
+        printf("Two or more users have the same bill.\n");
+    }
+}
+
+void output(MobileBill b1, MobileBill b2, MobileBill b3) {
+    printf("\n--- User Bill Details ---\n");
+    printf("Name: %s, Total Bill: ₹%.2f\n", b1.name, b1.total_bill);
+    printf("Name: %s, Total Bill: ₹%.2f\n", b2.name, b2.total_bill);
+    printf("Name: %s, Total Bill: ₹%.2f\n", b3.name, b3.total_bill);
+}
