@@ -1,0 +1,99 @@
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+typedef struct 
+{
+float velocity;
+float angle;
+float timeOfFlight;
+float maxHeight;
+float range;
+}Proj;
+
+void initialize (Proj experiment[], int n) ;
+void compute_results (Proj *experiment , int n);
+void display (Proj * experiment , int n);
+void high_range (Proj*experiment , int n);
+float angle_to_rad (float angle);
+void compare (Proj *a, Proj *b);
+
+int main ()
+{
+int n;
+printf ("enter the number of experiments\n");
+scanf ("%d",&n);
+Proj experiment[n];
+initialize (experiment,n);
+compute_results (experiment,n);
+high_range (experiment , n);
+Proj copy = experiment [0];
+compare (&copy,&experiment[1]);
+}
+
+void initialize (Proj experiment[], int n) 
+{
+for (int i =0;i<n;i++)
+{
+printf ("enter experiment %d details:", i + 1);
+printf ("enter the velocity\n");
+scanf ("%f",&experiment[i].velocity);
+printf ("enter the angle\n");
+scanf ("%f",&experiment[i].angle);
+printf ("enter the time of flight\n");
+scanf ("%f",&experiment[i].timeOfFlight);
+}
+}
+
+void compute_results (Proj *experiment , int n)
+{
+float g =9.8;
+for (int i =0;i<n;i++)
+{
+float angle = angle_to_rad (experiment[i].angle);
+float v = experiment[i].velocity;
+float t = experiment[i].timeOfFlight;
+experiment[i].maxHeight = (v*v * sin(angle) * sin(angle))/(2*g);
+ experiment[i].range = (v*v* sin(2*angle))/ (g);
+}
+}
+
+
+void display (Proj * experiment , int n)
+{
+printf ("%-10s %-10s %-12s %-12s %-12s","velocity(m/s)","Angle(rad)","time(s)","height(m)","range(m)");
+for (int i =0;i<n;i++)
+{
+printf ("%-10.2f%-10.2f %-12.2f %-12.2f %12.2f",experiment[i].velocity,experiment[i].angle,experiment[i].timeOfFlight,experiment[i].maxHeight,experiment[i].range);
+}
+}
+
+void high_range (Proj*experiment , int n)
+{
+int high = 0;
+for (int i =1;i<n;i++)
+{
+if (experiment[i].range>experiment[high].range)
+{
+high = i;
+}
+}
+printf ("the experiment %d has highest range and range is %f", high + 1, experiment[high].range);
+}
+
+
+void compare (Proj *a, Proj *b)
+{
+if (fabs(a->maxHeight - b->maxHeight)<1e-6)
+{
+printf ("both experiment has same height\n");
+}
+else
+{
+printf ("both experiments have different height\n");
+}
+}
+
+float angle_to_rad (float angle)
+{
+    return angle * M_PI / 180;
+}
