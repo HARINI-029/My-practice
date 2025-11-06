@@ -1,0 +1,114 @@
+# include <stdio.h>
+# include <stdlib.h>
+
+int ** allocate (int r,int c);
+void display (int**matrix ,int r,int c);
+void add (int **A,int**B,int **sum,int r,int c);
+void multiply ( int **A, int **B,int **product, int r1,int c1,int c2);
+void input (int **matrix , int r,int c);
+void free_(int **matrix, int r);
+int main ()
+{
+int r1,r2,c1,c2;
+printf ("enter the number of rows for two matrix\n");
+scanf ("%d %d %d %d",&r1,&r2,&c1,&c2);
+int **A,**B;
+A = allocate (r1,c1);
+B = allocate (r2,c2);
+int **Sum = NULL;
+int **Product = NULL;
+input (A,r1,c1);
+input (B,r2,c2);
+int can_add = ((r1==r2 && c1==c2));
+if (can_add)
+{
+add (A,B,Sum,r1,c1);
+display (Sum, r1,c1);
+}
+
+int can_mul = (r1==c1);
+if (can_mul)
+{
+multiply (A,B,Product,r1,c1,c2);
+display (Product,r1,c2);
+}
+
+free_(A,r1);
+free_ (B,r2);
+if (Sum !=NULL)
+free_ (Sum,r1);
+if (Product!=NULL)
+free_ (Product ,r1);
+}
+
+
+int ** allocate (int r,int c)
+{
+int **A = (int**) malloc (r * sizeof (int*));
+
+for (int i =0;i<r;i++)
+{
+A[i] = (int*) malloc (c *sizeof (int));
+}
+return A;
+}
+
+void input (int **matrix , int r,int c)
+{
+for (int i =0;i<r;i++)
+{
+for (int j =0;j<c;j++)
+{
+printf ("enter matrix[%d][%d]",i,j);
+scanf ("%d",&matrix[i][j]);
+}
+}
+}
+
+void add (int **A,int**B,int **sum,int r,int c)
+{
+for (int i =0;i<r;i++)
+{
+for (int j =0;j<c;j++)
+{
+sum += A[i][j] + B[i][j];
+}
+}
+}
+
+void multiply ( int **A, int **B,int **product, int r1,int c1,int c2)
+{
+for (int i =0;i<r1;i++)
+{
+for (int j =0;j<c2;j++)
+{
+for (int k =0;k<c1;k++)
+{
+product += A[i][k] * B[k][i];
+}
+}
+}
+}
+
+void free_ (int **matrix, int r)
+{
+for (int i =0;i<r;i++)
+{
+free (matrix[i]);
+}
+free (matrix);
+}
+
+
+void display (int**matrix ,int r,int c)
+{
+for (int i =0;i<r;i++)
+{
+for (int j =0;j<c;j++)
+{
+printf ("%d\t",matrix[i][j]);
+
+}
+printf ("\n");
+}
+}
