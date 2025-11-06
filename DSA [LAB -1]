@@ -1,0 +1,58 @@
+# include <stdio.h>
+# include <stdlib.h>
+
+float compute_average (float *score, int subject );
+
+int main ()
+{
+int n;
+
+printf ("enter the number of students\n");
+scanf ("%d",&n);
+
+int * subject = (int*) malloc ( n * sizeof(int));
+float **score = (float**) malloc (n * sizeof (float *));
+
+for (int i =0;i<n;i++)
+{
+printf ("Enter the number of subjects for  student -%d",i + 1);
+scanf ("%d",&subject[i]);
+
+score[i] = (float*) malloc (subject[i] * sizeof(float));
+for (int j =0;j<subject[i];j++)
+{
+printf ("enter the student - %d score of subject %d",i + 1, j +1);
+scanf ("%f",&score[i][j]);
+}
+}
+
+for (int i =0;i<n;i++)
+{
+float avg = compute_average (score[i], subject[i]);
+printf ("avg of student %d is %f", i + 1 ,avg);
+}
+
+float high = -1e9;
+for (int i =0;i<n;i++)
+{
+for (int j =0;j<subject[i];j++)
+{
+if (score[i][j]>high)
+{
+high = score[i][j];
+}
+}
+}
+
+printf ("highest score is %f",high);
+}
+
+float compute_average (float *score, int subject )
+{
+float sum =0;
+for (int i =0;i<subject;i++)
+{
+sum += score[i];
+}
+return sum/subject;
+}
